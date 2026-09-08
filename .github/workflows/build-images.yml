@@ -12,6 +12,13 @@ jobs:
   build-linux:
     runs-on: ubuntu-24.04-arm
     steps:
+      - name: Install build dependencies on Ubuntu
+        run: |
+          sudo apt update
+          sudo apt -y upgrade
+          sudo apt -y install lld flex bison bc cpio rsync libssl-dev libelf-dev
+          sudo apt -y autoremove
+
       - name: Print debug info and do some pre-run checks
         run: |
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
