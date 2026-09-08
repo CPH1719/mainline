@@ -4,14 +4,13 @@ on:
     types: [opened, synchronize, reopened]
   push:
     branches:
-      - qcom-sdm660-6.*.y
       - qcom-sdm660-7.*.y
     tags:
       - v*-sdm660
   workflow_dispatch:
 jobs:
   build-linux:
-    runs-on: [self-hosted, Linux, aarch64]
+    runs-on: ubuntu-24.04-arm
     steps:
       - name: Print debug info and do some pre-run checks
         run: |
